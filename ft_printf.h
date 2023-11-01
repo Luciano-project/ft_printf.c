@@ -11,31 +11,23 @@
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdio.h>
 # include <stdint.h>
 
-typedef struct s_data
-{
-	char				*text;
-	struct s_data		*next;
-}						t_data;
-
-
-// Libft functions
-
-
-
-
-
-
-
-
-
-
-
-
+// Functions
+int	ft_putchar(int c);
+void	ft_putstr(char *str);
+void	ft_putendl(char *str);
+void	ft_putnbr(int nb);
+void	ft_print_hex(unsigned int n, char *base);
+void	ft_print_ptr(unsigned long int n, char *base);
+char	*ft_strdup(char *str);
+int		ft_strlen(char *str);
+int		ft_toupper(int c);
+int		ft_printf(const char	*param, ...);
 
 #endif

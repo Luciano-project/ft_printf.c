@@ -1,43 +1,43 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: luccarva <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/11/01 18:48:17 by luccarva          #+#    #+#              #
+#    Updated: 2023/11/01 18:48:22 by luccarva         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-#Variables
-.SILENT:
+NAME	= libftprintf.a
+		
+SRCS =  ft_printf.c	ft_printf_utils.c	ft_lib_func.c
+OBJS	:= ${SRCS:.c=.o}
+CC		:= gcc
+RM		:= /bin/rm -f
+CFLAGS	:= -Wall -Wextra -Werror
+CL		:= ar -rc
+RL		:= ar -s
 
-NAME =  libftprintf.a
-
-SRCS = ft_printf.c, ft_printf_utils.c, ft_printf.h
-OBJS = ${SRCS:.c=.o}
-
-CC		= gcc
-RM		= /bin/rm -f
-CFLAGS	= -Wall -Wextra -Werror -I ${INC}
-
-INC	= ./
-CL = ar -rc
-RL = ar -s
-
-${NAME}:	${OBJS}
-	${CL}	${NAME}	${OBJS}
-	${RL}	${NAME}
-	printf "Compiling the program..\033[0;32m [OK]\033[0m\n"
+${NAME}: ${OBJS}
+	${CL} ${NAME} ${OBJS}
+	${RL} ${NAME}
+	echo 'libftprintf is ready'
 
 all: ${NAME}
 
 clean:
 	${RM} ${OBJS}
-	printf "Removing object files..\033[0;32m [OK]\033[0m\n"
+	echo 'Objects removed'
 
-fclean:	clean
-	${RM}	${NAME}
-	printf "Removing executable....\033[0;32m [OK]\033[0m\n"
+fclean: clean
+	${RM} ${NAME}
+	echo 'Static library removed'
 
 re: fclean all
 
 norm:
-	printf "\033[0;32mRunning Norminette\n\n\033[0m"
-	printf "\033[0;35mInclude\n\033[0m"
-	norminette -R CheckDefine *.h
-	printf "\033[0;36m\nFunctions\n\033[0m"
+	echo 'Running Norminette'
 	norminette -R CheckForbiddenSourceHeader *.c
-	printf "\n"
-	
-.PHONY: clean fclean all re
+	norminette -R CheckDefine *.h
