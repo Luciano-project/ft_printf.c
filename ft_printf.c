@@ -14,7 +14,9 @@
 
 int	options(char *param, va_list	argsptr, int i)
 {
-	int c = 0;
+	int	c;
+
+	c = 0;
 	if (param[i] == 'c')
 		c += ft_putchar(va_arg(argsptr, int));
 	else if (param[i] == 's')
@@ -36,7 +38,6 @@ int	options(char *param, va_list	argsptr, int i)
 	}
 	else if (param[i] == '%')
 		ft_putchar('%');
-
 	return (c);
 }
 

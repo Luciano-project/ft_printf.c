@@ -19,15 +19,15 @@
 # include <stdint.h>
 
 // Functions
-int	ft_putchar(int c);
-void	ft_putstr(char *str);
-void	ft_putendl(char *str);
-void	ft_putnbr(int nb);
+int	ft_printf(const char	*param, ...); 
+char	*ft_strdup(char *str);
 void	ft_print_hex(unsigned int n, char *base);
 void	ft_print_ptr(unsigned long int n, char *base);
-char	*ft_strdup(char *str);
-int		ft_strlen(char *str);
-int		ft_toupper(int c);
-int		ft_printf(const char	*param, ...);
+void	ft_putnbr(int nb);
+void	ft_putstr(char *str);
+int	ft_putendl(char *str);
+int	ft_strlen(char *str);
+int	ft_toupper(int c);
 
+int	ft_putchar(int c);
 #endif
